@@ -3,7 +3,6 @@
     flex-direction: column;
     background-color: #292828;
     color: #ebebeb;
-    height: calc(100% - 67.81px);
     align-items: center;
 }
 .loginContent{
@@ -14,6 +13,7 @@
     border-radius: 12px;
     padding: 1rem 3rem 3rem 3rem;
     margin-top: 2rem;
+    margin-bottom: 2rem;
     box-shadow: 2px 4px 15px 5px rgba(0,0,0,0.61);
 }
 .signUpForm{
