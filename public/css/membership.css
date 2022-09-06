@@ -3,7 +3,6 @@
     flex-direction: column;
     background-color: #292828;
     color: #ebebeb;
-    height: calc(100% - 67.81px);
     align-items: center;
 }
 .membContent{

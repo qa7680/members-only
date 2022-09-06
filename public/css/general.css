@@ -21,8 +21,13 @@ textarea{
 h3:visited{
     color: white;
 }
+a{
+    color: white;
+    text-decoration: none;
+}
 a:visited{
     color: white;
+    text-decoration: none;
 }
 link:visited{
     color: white;
