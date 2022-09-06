@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel = "stylesheet" href="/css/message.css" />
+    <title><%= title %> </title>
+</head>
+<body>  
+    <%- include('nav') %>
+    <div class="msgContainer">
+        <div class="msgContent">
+            <h1>Create a New Message!</h1>
+            <form class="msgForm" method="POST" action="/create-message">
+                <div class="formField">
+                    <label for = "title">Title: </label>
+                    <% if(typeof message !== 'undefined') {%>
+                        <input style="font-family: sans-serif" name="title" id ="title" required="true" placeholder="Enter Title" type="text"
+                        <%="value="%><%=message.title%> />
+                    <%} else{%>
+                        <input style="font-family: sans-serif" name="title" id ="title" required="true" placeholder="Enter Title" type="text" />
+                    <%}%>
+                </div>
+                <div class="formField">
+                    <label for = "message">Message: </label>
+                    <% if(typeof message !== 'undefined') {%>
+                        <textarea style="border-radius: 6px; font-family: sans-serif; padding:0.3rem" rows="10" cols="30" name="message" id="message" type="text" required="true" placeholder="Enter Message"><%= message.message %></textarea>
+                    <%} else{%>
+                        <textarea style="border-radius: 6px; font-family: sans-serif; padding:0.3rem" rows="10" cols="30" name="message" id="message" type="text" required="true" placeholder="Enter Message"></textarea>
+                    <%}%>
+                </div>
+                <div class="msgError">
+                    <% if(typeof errors !== 'undefined') {%>
+                        <p>**<%= errors[0].msg %> </p>
+                    <%}  %>
+                </div>
+                <button class="loginBtn" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

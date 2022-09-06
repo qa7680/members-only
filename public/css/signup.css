@@ -1,0 +1,79 @@
+.loginContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: #292828;
+    color: #ebebeb;
+    height: calc(100% - 67.81px);
+    align-items: center;
+}
+.loginContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #131212;
+    border-radius: 12px;
+    padding: 1rem 3rem 3rem 3rem;
+    margin-top: 2rem;
+    box-shadow: 2px 4px 15px 5px rgba(0,0,0,0.61);
+}
+.signUpForm{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    width: 30vw;
+}
+.signUpForm input{
+    padding: 0.3rem;
+    border: none;
+    border-radius: 4px;
+}
+.signUpField{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.signUpAmindField{
+    display: flex;
+    gap: 0.3rem;
+}
+.loginBtn{
+    font-family: inherit;
+    font-weight: bold;
+    font-size: larger;
+    width: 20%;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 0.14rem;
+}
+/* HIDE RADIO */
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* IMAGE STYLES */
+  [type=radio] + img {
+    cursor: pointer;
+  }
+  
+  /* CHECKED STYLES */
+  [type=radio]:checked + img {
+    outline: 2px solid rgb(77, 77, 166);
+  }
+
+.emojiImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 5px solid rgba(255, 255, 255, 0);
+    background-position: bottom;
+    background-size: cover;
+    cursor: pointer;
+    /* margin: 0 auto 1em auto; */
+    margin: 0 1em;
+}
+

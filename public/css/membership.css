@@ -1,0 +1,30 @@
+.membContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: #292828;
+    color: #ebebeb;
+    height: calc(100% - 67.81px);
+    align-items: center;
+}
+.membContent{
+    display: flex;
+    flex-direction: column;
+}
+.membContent input{
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    padding: 0.4rem;
+}
+.membBtn{
+    font-family: inherit;
+    font-weight: bold;
+    font-size: larger;
+    padding: 0.4rem;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-left: 0.4rem;
+}

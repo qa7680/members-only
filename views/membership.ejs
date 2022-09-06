@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/membership.css" />
+    <title><%= title %> </title>
+</head>
+<body>
+    <%- include('nav') %>
+    <div class="membContainer">
+        <div class="membContent">
+            <h2>You current status: <%= user.membership %> </h2>
+            <% if(user.membership === 'expert') {%>
+                <h2>You are already an expert...congrats !!</h2>
+            <%}
+                else{%>
+                    <form class="membForm" method="POST" action="/membership">
+                        <label for = "membership">Enter the word "expert" to become an expert!: </label>
+                        <input name="membership" id = "membership" type="text" placeholder="Type 'expert' "/>
+                        <button class="membBtn" type="submit">Submit</button>
+                    </form>
+                <%}
+            %>
+        </div>
+    </div>
+</body>
+</html>

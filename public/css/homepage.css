@@ -1,0 +1,40 @@
+.homeContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #292828;
+    color: #ebebeb;
+}
+.message{
+    padding: 2rem;
+    width: 40%;
+    border-radius: 12px;
+    background-color: #131212;
+    border: none;
+    margin: 1.5rem;
+    font-family: monospace;
+    font-size: large;
+}
+.deleteBtn{
+    padding: 0.3rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.emojiImg{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 5px solid rgba(255, 255, 255, 0);
+    background-position: bottom;
+    background-size: cover;
+    /* margin: 0 auto 1em auto; */
+    margin: 0 1em;
+}
+.nameAndEmoji{
+    display: flex;
+    align-items: center;
+    gap: 0;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/homepage.css" />
+    <title><%= title %> </title>
+</head>
+<body>
+    <%- include('nav') %>
+    <div class="homeContainer">
+        <% if (user) {%>
+            <% for(let i = 0; i<message_list.length; i++) {%>
+                <div class="message">
+                    <p>Subject: <%= message_list[i].title %> </p>
+                    <p>Message: <%= message_list[i].message %> </p>
+                    <p>Date: <%= message_list[i].date_formatted %> </p>
+                    <% if(user.membership == 'expert') {%>
+                        <div class="nameAndEmoji">
+                            <p>From: <%= message_list[i].user.username%></p>
+                            <% if(message_list[i].user.emoji == 'party') {%>
+                                <img src="/images/party.png" class="emojiImg"/>
+                            <%} 
+                            else if(message_list[i].user.emoji == 'thinking') {%>
+                                <img src="/images/thinking.png" class="emojiImg"/>
+                            <%}
+                            else if(message_list[i].user.emoji == 'confused') {%>
+                                <img src="/images/confused.png" class="emojiImg"/>
+                            <%}
+                            else if(message_list[i].user.emoji == 'sad') {%>
+                                <img src="/images/sad.png" class="emojiImg"/>
+                            <%}
+                            %>
+                        </div> 
+                    <%} else{%>
+                        <p>From: Anonymous(click on the top left to become an expert and view users) </p>
+                    <%}%> 
+                    
+                    <% if(user.admin === true) {%>
+                        <form method="POST" action="">
+                            <input id="message_Id" hidden="true" name="message_Id" value = <%= message_list[i]._id %>>
+                            <button class="deleteBtn" type="submit">Delete Message</button><p style="font-size: small; color: red;">(Warning!! Once you click on delete...this message will be gone forever)</p>
+                        </form>
+                    <%} %>
+                </div>
+            <%} %>
+          <% } else { %>
+            <% for(let i = 0; i<message_list.length; i++) {%>
+                <div class="message">
+                    <p>Subject: <%= message_list[i].title %> </p>
+                    <p>Message: <%= message_list[i].message %> </p>
+                    <p>Date: <%= message_list[i].date_formatted %> </p>
+                    <p>From: Anonymous </p>
+                </div>
+            <%} %>
+        <%}%>
+    </div>
+</body>
+</html>

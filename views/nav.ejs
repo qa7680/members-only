@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/general.css" />
+</head>
+<body>
+    <% if(typeof user !== 'undefined') {%>
+        <nav>
+            <ul class="navItems">
+                <div class="membMessage">
+                    <h3><a href="/membership">Status: <%= user.membership %></a></h3>
+                    <h3><a href="/create-message">Create Message</a></h3>
+                </div>
+                <h2><a href="/">Members Only</a></h3>
+                <div class="navRight">
+                    <p class="navLinkPara">Welcome Back <strong><%= user.username%><%if(user.admin == true){%>(admin)<%}%></strong></p>
+                    <p class="navLinkPara"><a href="/logout">Logout</a></p>
+                </div>
+            </ul>
+        </nav>
+    <%} else{%>
+        <nav>
+            <ul class="navItems">
+                <h2><a href="/">Members Only</a></h3>
+                <div class="navRight">
+                    <p class="navLinkPara"><a href="/login">Login</a></p>
+                    <p class="navLinkPara"><a href="/sign-up">Sign Up</a></p>
+                </div>
+            </ul>
+        </nav>
+    <%}%> 
+</body>
+</html>

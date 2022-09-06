@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel = "stylesheet" href="/css/login.css" />
+    <title><%= title %> </title>
+</head>
+<body>  
+    <%- include('nav') %>
+    <div class="loginContainer">     
+            <div class="loginContent">
+                <h2>Login to Members Only!</h2>
+                <form class="loginForm" method="POST" action="/login">
+                    <div class="formField">
+                        <label for = "username">Username: </label>
+                        <input  name="username" id ="username" required="true" placeholder="Enter Username" type="text"/>
+                    </div>
+                    <div class="formField">
+                        <label for = "password">Password: </label>
+                        <input  name="password" id ="password" required="true" placeholder="Enter Password" type="password"/>
+                    </div>
+                    <button class="loginBtn" type="submit">Login</button>
+                    <div>
+                        <%if(messages.error){%>
+                            <p class="msgError">*<%=messages.error%></p>
+                        <%}%>
+                    </div>
+                    <h3 class="signupLink">Don't have an account ? <a href="/sign-up" style="color: yellow;">Sign Up!</a></h3>
+                </form>
+            </div>
+    </div>
+</body>
+</html>

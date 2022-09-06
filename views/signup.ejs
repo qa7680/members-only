@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
+    <title><%= title %> </title>
+</head>
+<body>  
+    <%- include('nav') %>
+    <div class="loginContainer">
+        <div class="loginContent">
+            <h2>Sign Up to Members Only!</h1>
+            <form class="signUpForm" method="POST" action="/sign-up">
+                <div class="signUpField">
+                    <label for = "first_name">First Name: </label>
+                    <% if(typeof reqBody !== 'undefined') {%>
+                        <input  name="first_name" id ="first_name" required="true" placeholder="Enter First Name" type="text"
+                        <%="value="%><%=reqBody.first_name%> />
+                    <%} else{%>
+                        <input  name="first_name" id ="first_name" required="true" placeholder="Enter First Name" type="text" />
+                </div>
+                <%}%>
+                <div class="signUpField">
+                    <label for = "last_name">Last Name: </label>
+                    <% if(typeof reqBody !== 'undefined') {%>
+                        <input  name="last_name" id ="last_name" required="true" placeholder="Enter Last Name" type="text"
+                        <%="value="%><%=reqBody.last_name%> />
+                    <%} else{%>
+                        <input  name="last_name" id ="last_name" required="true" placeholder="Enter Last Name" type="text" />
+                    <%}%>
+                </div>
+                <div class="signUpField">
+                    <label for = "username">Username: </label>
+                    <% if(typeof reqBody !== 'undefined') {%>
+                        <input  name="username" id ="username" required="true" placeholder="Enter Username" type="text"
+                        <%="value="%><%=reqBody.username%> />
+                    <%} else{%>
+                        <input  name="username" id ="username" required="true" placeholder="Enter Username" type="text" />
+                    <%}%>
+                </div>
+                <div class="signUpField">
+                    <label for = "password">Password: </label>
+                    <input  name="password" id ="password" required="true" type="password" placeholder="Enter Password"/>
+                </div>
+                <div class="signUpField">
+                    <label for = "password2">Confirm Password: </label>
+                    <input  name="password2" id ="password2" required="true" type="password" placeholder="Confirm Password"/>
+                </div>
+                <div class="signUpAmindField">
+                    <label for = "admin">Admin(can delete messages): </label>
+                    <% if(typeof reqBody !== 'undefined') {%>
+                        <% if(reqBody.admin == 'on') {%>
+                            <input  name="admin" id ="admin" type="checkbox" checked="on"/>
+                        <%} else{%>
+                            <input  name="admin" id ="admin" type="checkbox"/>
+                        <%}%>
+                    <%} else{%>
+                            <input  name="admin" id ="admin" type="checkbox"/>
+                    <%}%>
+                </div>   
+                <div class = "chooseEmojiField">
+                    <p>Choose Mood: </p>
+                    <label for = "party" class="partyEmoji">
+                        <input id = "party" name = "emoji" type="radio" value = "party">
+                        <img class="emojiImg" src="/images/party.png" alt="Option 1"/>
+                    </label>
+                    <label for = "thinking" class="thinkingEmoji">
+                        <input id = "thinking" name = "emoji" type="radio" value = "thinking">
+                        <img class="emojiImg" src="/images/thinking.png" alt="Option 3" />
+                    </label>
+                    <label for = "confused" class="confusedEmoji">
+                        <input id = "confused" name = "emoji" type="radio" value = "confused">
+                        <img class="emojiImg" src="/images/confused.png" alt = "Option 2"/>
+                    </label>
+                    <label for = "sad" class="sadEmoji">
+                        <input id = "sad" name = "emoji" type="radio" value = "sad">
+                        <img class="emojiImg" src="/images/sad.png" alt="Option 4" />
+                    </label>
+                </div>
+                    <% if(typeof errors !== 'undefined') {%>
+                        <p style="color: red;">**<%= errors[0].msg %> </p>
+                    <%}  %>
+                    <% if(typeof userExists !== 'undefined') {%>
+                        <p style="color: red;">**<%= userExists %> </p>
+                    <%} %>
+                
+                <button class="loginBtn" type="submit">Sign Up</button>
+            </form>
+            <h3 class="signupLink">Already have an account ? <a href="/login" style="color:rgb(216, 63, 36);">Login!</a></h3>
+        </div>
+    </div>
+</body>
+</html>
